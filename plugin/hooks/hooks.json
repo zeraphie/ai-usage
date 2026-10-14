@@ -1,0 +1,35 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|resume|clear|compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bun",
+            "args": ["${CLAUDE_PLUGIN_ROOT}/hooks/session-start.ts", "sync"],
+            "timeout": 10
+          },
+          {
+            "type": "command",
+            "command": "bun",
+            "args": ["${CLAUDE_PLUGIN_ROOT}/hooks/session-start.ts", "workflow"],
+            "timeout": 10
+          },
+          {
+            "type": "command",
+            "command": "bun",
+            "args": ["${CLAUDE_PLUGIN_ROOT}/hooks/session-start.ts", "reuse"],
+            "timeout": 10
+          },
+          {
+            "type": "command",
+            "command": "bun",
+            "args": ["${CLAUDE_PLUGIN_ROOT}/hooks/session-start.ts", "project"],
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}

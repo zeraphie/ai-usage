@@ -1,6 +1,7 @@
 # Tailwind
 
-For a project whose `.ai` names the Tailwind layer.
+For a project that names `tailwind` in the `stacks` of its
+`.ai/base.json`.
 
 - Tailwind v4 utilities for layout, spacing and type, through its Vite
   plugin, with no PostCSS config.

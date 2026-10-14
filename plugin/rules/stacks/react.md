@@ -6,8 +6,9 @@ paths:
 
 # React
 
-For a project whose `.ai` names the React layer. The UI's folders follow
-atomic design, as the reuse rules say.
+For a project that names `react` in the `stacks` of its
+`.ai/base.json`. The UI's folders follow atomic design, as the reuse
+rules say.
 
 - **React stays thin.** Components render state and forward intent. The
   logic lives in plain modules that never import React, so it is tested

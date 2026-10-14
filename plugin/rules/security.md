@@ -40,8 +40,8 @@ they have been used in practice.
 
 ## Fintech, when a project turns it on
 
-A project that handles money says so in its `.ai`, and then these hold
-as well.
+A project that handles money names `fintech` in the `options` of its
+`.ai/base.json`, and then these hold as well.
 
 - Every change to a record can be traced: who, what, when, and to which
   record.

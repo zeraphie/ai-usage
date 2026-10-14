@@ -1,3 +1,8 @@
+---
+paths:
+  - "**/*.{ts,tsx,mts,cts,js,jsx,mjs,cjs,astro,css}"
+---
+
 # Style
 
 The house style, the same in every repo of Izzy's. A stack's own rules

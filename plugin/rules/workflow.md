@@ -17,6 +17,21 @@ Research, then decisions, then a plan, then one step at a time.
 
 Small work, a question or one obvious edit, needs none of the files.
 
+## When more is relevant
+
+The rest of the base loads only when the work needs it. Style and
+testing come with the files they are about. Two more are brought in by
+what a change does:
+
+- **Security.** A change that touches sign-in, tokens, secrets,
+  cookies, personal data, payments, or anything a person or another
+  system sends, is read against `{{rules}}/security.md` before it is
+  reported, and the report suggests a security pass.
+- **A stack.** A change that adds React, Lit, Tailwind or Astro to a
+  repo adds its name to `stacks` in the project's `.ai/base.json`, in
+  the same change, asked first like any other extra. The layer then
+  loads from the next session on.
+
 ## Open decisions are Izzy's
 
 An open decision is a question with options, one short line each. Never
@@ -131,6 +146,6 @@ supplies the facts, and does not write it.
 
 ## When there is something to look at
 
-A project with a look to judge, a UI or anything visual, says so in its
-`.ai`, and this holds there: how a thing looks or moves is Izzy's call.
-Offer the knobs, not the verdict.
+A project with a look to judge, a UI or anything visual, names `look`
+in the `options` of its `.ai/base.json`, and this holds there: how a
+thing looks or moves is Izzy's call. Offer the knobs, not the verdict.

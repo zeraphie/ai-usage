@@ -4,5 +4,13 @@
   "description": "The shared base: the workflow, the formats, the reuse rules and the tools behind them.",
   "author": {
     "name": "Izzy"
+  },
+  "userConfig": {
+    "delivery": {
+      "type": "string",
+      "title": "How the rules reach a session",
+      "description": "rules (the default) copies them into ~/.claude/rules and the project's own .claude/rules; context hands them to each session instead.",
+      "default": "rules"
+    }
   }
 }

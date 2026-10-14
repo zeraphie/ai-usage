@@ -1,7 +1,7 @@
 # Lit
 
-For a project whose `.ai` names the Lit layer. Its custom elements
-follow atomic design, as the reuse rules say.
+For a project that names `lit` in the `stacks` of its `.ai/base.json`.
+Its custom elements follow atomic design, as the reuse rules say.
 
 - Elements are classes, by necessity; pure logic stays plain functions
   in modules that never import Lit.

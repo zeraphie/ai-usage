@@ -9,7 +9,8 @@ allowed-tools: Bash(bun tools/check-reuse.ts) Bash(bun tools/build-catalogue.ts 
 A shared piece and its row arrive together, in the same change as the
 deleted copies. A shared piece beside its old copies is a third copy,
 and a piece with no row can be copied again tomorrow. The rules behind
-it are in `${CLAUDE_PLUGIN_ROOT}/rules/reuse.md`.
+it are in `${CLAUDE_PLUGIN_ROOT}/rules/reuse.md`, and the table's in
+`${CLAUDE_PLUGIN_ROOT}/rules/reuse-tools.md`.
 
 Share only on the second use, and only when the step says to or Izzy
 has agreed. A piece with one caller stays where it is.

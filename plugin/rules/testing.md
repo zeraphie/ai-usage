@@ -1,3 +1,9 @@
+---
+paths:
+  - "**/tests/**"
+  - "**/*.{test,spec,e2e}.*"
+---
+
 # Testing
 
 How a change proves itself, in every repo of Izzy's. A project's `.ai`
@@ -38,7 +44,8 @@ it keeps stories.
 ## Stories, when a project keeps them
 
 A project whose people do things with it end to end may keep stories,
-and says so in its `.ai`. Then these hold as well.
+and names `stories` in the `options` of its `.ai/base.json`. Then these
+hold as well.
 
 - **A story is one thing a person sets out to do**, and what they see
   along the way. Stories are the integration tests; a key press can be

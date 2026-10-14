@@ -55,7 +55,7 @@
       }
     },
     {
-      "files": ["plugin/tools/**/*.ts"],
+      "files": ["plugin/tools/**/*.ts", "plugin/hooks/**/*.ts"],
       "rules": {
         "no-console": "off"
       }

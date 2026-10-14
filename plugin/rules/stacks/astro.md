@@ -5,8 +5,9 @@ paths:
 
 # Astro
 
-For a project whose `.ai` names the Astro layer. Astro is Izzy's choice
-for a static site that needs navigation.
+For a project that names `astro` in the `stacks` of its
+`.ai/base.json`. Astro is Izzy's choice for a static site that needs
+navigation.
 
 - A page's `<script>` is a module that runs once per load. Its wiring
   is idempotent and safe to tear down.
