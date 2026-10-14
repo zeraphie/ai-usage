@@ -9,8 +9,8 @@ folder keeps only what is truly its own.
 **Reuse is the point.** Every project gets it from its first line,
 and the tools for it are shared, never copied.
 Decisions live in an ADR per topic in `.plan/`, beside its plan.
-There is no design doc yet. **Local until Izzy asks:** no git init,
-commits, remotes or pushes unprompted.
+There is no design doc yet. **Local until Izzy asks:** a git repo with
+no remote; never create a remote or push unprompted.
 
 ## Workflow
 
@@ -60,9 +60,10 @@ first:
   `C:\Users\Izzy\Documents\Development`, including tablewright,
   atelier, gossamer, hexpunk, izelya.me, warrior-of-keyboard,
   i-dotfiles and setup, is read, never written.
-- **Git only when asked.** No git init, commits or pushes without
-  asking. When asked, commits are `type(scope): short description`,
-  subject-only, no trailers.
+- **Commits.** Commit when a step lands or when asked, and only after
+  the checks pass. `type(scope): short description`, the scope left out
+  when a change has no single area; subject-only, no Co-Authored-By or
+  any other trailer. No remote and no push unless Izzy asks.
 - **The prose is Izzy's.** README.md is written by Izzy; agents
   propose its structure and supply the facts, but don't write it.
 - Plain English. No emoji.
