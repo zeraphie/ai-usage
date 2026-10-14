@@ -75,13 +75,29 @@ tools cannot check.
 - Strict, plus `noUncheckedIndexedAccess`, `noImplicitOverride`,
   `noFallthroughCasesInSwitch`, `isolatedModules` and
   `verbatimModuleSyntax`. No `any`.
-- JSDoc on exported APIs: the purpose in prose, plus the tags the type
-  alone does not carry. A non-exported function needs none.
 - Private class members use the `private` keyword. In JavaScript, a
   `#name` private field.
 - Explicit `.js` extensions on relative imports.
 - Guard at the boundary and return early; no defensive re-checks deep
   inside.
+
+## JSDoc
+
+JSDoc is how a JavaScript or TypeScript library explains itself: editors
+infer from it, docs and manifests are generated from it, and a catalogue
+lists by it. So it is written once, in the source, and kept true.
+
+- Every exported name has it: its purpose in prose, opening with one
+  plain sentence saying what it is for.
+- In TypeScript, the tags the type alone does not carry: `@throws`,
+  `@example`, `@deprecated`, a unit or a range a number holds.
+- In plain JavaScript, it carries the types too: `@param {type}`,
+  `@returns {type}`, `@typedef`, with `{types}` in braces, so editors
+  infer them and docs can be generated without revisiting the file.
+- Every tag says something the name alone does not.
+- A non-exported function needs none.
+- When a tool reads it, such as a custom-elements manifest, the stack's
+  layer names the tags it needs, and they are mandatory there.
 
 ## Naming
 

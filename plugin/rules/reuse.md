@@ -48,7 +48,9 @@ whether the project moves to robust reuse, with its catalogue.
 A folder says what kind of thing is in it, so a glance shows the
 vocabulary.
 
-- **A UI sorts by layer, not by feature** (atomic design):
+- **A UI sorts by layer, not by feature** (atomic design), whatever
+  renders it: React components, Lit custom elements, or plain markup
+  styled with Tailwind. Read "element" as whichever the stack has:
   - `atoms/`: one element or one look, with no state of its own and no
     knowledge of the domain.
   - `molecules/`: a few atoms with one purpose. It knows one thing of
