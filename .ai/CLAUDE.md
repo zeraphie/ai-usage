@@ -9,8 +9,9 @@ folder keeps only what is truly its own.
 **Reuse is the point.** Every project gets it from its first line,
 and the tools for it are shared, never copied.
 Decisions live in an ADR per topic in `.plan/`, beside its plan.
-There is no design doc yet. **Local until Izzy asks:** a git repo with
-no remote; never create a remote or push unprompted.
+There is no design doc yet. **Public on GitHub** as `zeraphie/ai-usage`:
+push only when Izzy asks, and never submit it to Anthropic's plugin
+directory.
 
 ## Workflow
 
@@ -63,7 +64,7 @@ first:
 - **Commits.** Commit when a step lands or when asked, and only after
   the checks pass. `type(scope): short description`, the scope left out
   when a change has no single area; subject-only, no Co-Authored-By or
-  any other trailer. No remote and no push unless Izzy asks.
+  any other trailer. No push unless Izzy asks.
 - **The prose is Izzy's.** README.md is written by Izzy; agents
   propose its structure and supply the facts, but don't write it.
 - Plain English. No emoji.
