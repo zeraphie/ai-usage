@@ -1,0 +1,8 @@
+{
+  "name": "ai-usage",
+  "version": "0.0.1",
+  "description": "The shared base: the workflow, the formats, the reuse rules and the tools behind them.",
+  "author": {
+    "name": "Izzy"
+  }
+}

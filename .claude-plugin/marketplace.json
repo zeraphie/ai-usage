@@ -1,0 +1,13 @@
+{
+  "name": "ai-usage",
+  "description": "Izzy's shared base for working with AI across their repos.",
+  "owner": {
+    "name": "Izzy"
+  },
+  "plugins": [
+    {
+      "name": "ai-usage",
+      "source": "./plugin"
+    }
+  ]
+}
