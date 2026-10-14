@@ -1,15 +1,23 @@
 ---
 name: reuse-reading
-description: The reuse reading that ends every step and every report on a piece of work. Use it when a step of a plan is built, before the report goes to Izzy, to say what was looked for, what was reused and what was not found, and to catch a copy before it lands.
+description: Reuse, at both ends of any change to code. Use it before the first edit, to look for what exists that the change could reuse, and again when the work is done, before the report goes to Izzy, to say what was looked for, what was reused and what was not found, and to catch a copy before it lands.
 allowed-tools: Bash(git status *) Bash(git diff *) Bash(bun ${CLAUDE_PLUGIN_ROOT}/tools/copy-reuse.ts *)
 ---
 
 # The reuse reading
 
-Every report on a piece of work ends with three lines: what was looked
-for, what was reused, and what was looked for and not found. This skill
-makes them true by looking again, after the work and before the report.
-The rules behind it are in `${CLAUDE_PLUGIN_ROOT}/rules/reuse.md`.
+Reuse happens at both ends of a change. Before the first edit, look for
+what the change could reuse. After the work, look again, and end the
+report on what was looked for, what was reused, and what was looked for
+and not found. The rules behind it are in
+`${CLAUDE_PLUGIN_ROOT}/rules/reuse.md`.
+
+## 0. Before the first edit
+
+List what the change will need, each function, component, style,
+constant, type or helper, and look for each as in part 2. Write down
+what was found, to reuse, and write only what was not. Then make the
+change, and come back to part 1 when it is done.
 
 ## 1. What the work added
 

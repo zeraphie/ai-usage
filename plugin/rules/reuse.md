@@ -16,9 +16,17 @@ exists.
 
 ## Look before you write
 
-- Before a new function, component, style, constant or helper, look for
-  the one that exists: the catalogue when the project has one, then a
-  search of the source for the verb and the noun.
+**Reuse starts the moment code is touched**, before the first edit, not
+at the end of the step. A copy found after it is written is already a
+copy.
+
+- Before any code is written or changed, list what the change will need:
+  each function, component, style, constant, type or helper. Then look
+  for each one that exists: the catalogue when the project has one, the
+  table in `tools/reuse.config.ts`, then a search of the source for the
+  verb and the noun of what it does, not only its spelling.
+- Write only what the look did not find, and keep what it found to
+  reuse.
 - Reuse it as it is. When it nearly fits, change it to fit both uses.
   Never copy it and change the copy.
 - The second use is the moment to share. The first time, write it where
@@ -79,5 +87,5 @@ vocabulary.
 ## The tools
 
 The reuse check, its import rules, its copy in each project and the
-catalogue are in `reuse-tools.md`, which loads with the project's
-`tools/` and `.ai/CATALOGUE.md`.
+catalogue are in `reuse-tools.md`, which loads with any source file, the
+project's `tools/` and its catalogue.

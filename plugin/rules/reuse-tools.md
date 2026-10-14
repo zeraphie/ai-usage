@@ -2,6 +2,7 @@
 paths:
   - "**/tools/**"
   - "**/.ai/CATALOGUE.md"
+  - "**/*.{ts,tsx,mts,cts,js,jsx,mjs,cjs,astro,css}"
 ---
 
 # Reuse: the tools
