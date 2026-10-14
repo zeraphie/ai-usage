@@ -11,6 +11,12 @@
       "title": "How the rules reach a session",
       "description": "rules (the default) copies them into ~/.claude/rules and the project's own .claude/rules; context hands them to each session instead.",
       "default": "rules"
+    },
+    "cap_playwright": {
+      "type": "boolean",
+      "title": "Hold Playwright to a share of the machine",
+      "description": "On by default: a Playwright run Claude starts goes through the plugin's capped runner, so it cannot take the desktop. Turn it off on a machine that does not need it.",
+      "default": true
     }
   }
 }

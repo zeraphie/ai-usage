@@ -44,6 +44,9 @@ filled in as the likely answer. Never pick for Izzy.
 7. **Its own rules and checks**: anything only this project holds to (a
    runtime dependency set, a budget, a rule of its domain), and any
    check beyond the usual ones.
+8. **MCP servers**: any this project needs, which go in its own
+   `.mcp.json`. The base ships none; they are chosen project by
+   project.
 
 ## 3. Write the layer
 
@@ -70,6 +73,7 @@ filled in as the likely answer. Never pick for Izzy.
   rewritten copy fails its stamp.
 - **`.gitignore`** gains `.plan/`, and `.claude/rules/ai-usage/`, where
   the base writes the project's layers each session.
+- **`.mcp.json`**, only when question 8 named a server.
 - **`.plan/`** exists, empty.
 - **No `DECISIONS.md` and no design doc.** Decisions go in an ADR per
   topic in `.plan/`. Never `git init`, a remote or a push unless Izzy

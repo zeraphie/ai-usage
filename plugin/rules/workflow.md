@@ -51,8 +51,8 @@ it go beside the options: which repos do it which way, what each costs.
 ## After each step
 
 1. Tick the step's box, and write its Done note under it.
-2. Run the checks. Every check passes, or the report says which did not
-   and why.
+2. Run the formatter once, then the checks. Every check passes, or the
+   report says which did not and why.
 3. Explain what was done, how it works, and why this approach over the
    alternatives. Izzy owns the outcome and has to stand by every line,
    live, so the explanation is part of the deliverable, not a courtesy.

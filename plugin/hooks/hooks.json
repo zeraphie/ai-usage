@@ -30,6 +30,19 @@
           }
         ]
       }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash|PowerShell",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bun",
+            "args": ["${CLAUDE_PLUGIN_ROOT}/hooks/shell-guard.ts"],
+            "timeout": 10
+          }
+        ]
+      }
     ]
   }
 }
