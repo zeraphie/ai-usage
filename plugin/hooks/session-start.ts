@@ -8,6 +8,10 @@
  * its `.claude/rules/ai-usage/`, writing only what changed, and the
  * other parts say nothing. With `context`, each other part hands its
  * rules to the session instead.
+ *
+ * A skill runs `sync <project> <delivery>` itself, since a command it
+ * runs gets neither the project nor the plugin's options from Claude
+ * Code; the hook passes neither and reads them from its environment.
  */
 
 import { existsSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
@@ -27,8 +31,11 @@ import {
 const RULES = join(import.meta.dir, "..", "rules");
 const STACKS = join(RULES, "stacks");
 const part = process.argv[2] ?? "sync";
-const delivery = process.env["CLAUDE_PLUGIN_OPTION_DELIVERY"] === "context" ? "context" : "rules";
-const project = process.env["CLAUDE_PROJECT_DIR"] ?? process.cwd();
+const delivery =
+  (process.argv[4] ?? process.env["CLAUDE_PLUGIN_OPTION_DELIVERY"]) === "context"
+    ? "context"
+    : "rules";
+const project = process.argv[3] ?? process.env["CLAUDE_PROJECT_DIR"] ?? process.cwd();
 const userDir = join(homedir(), ".claude", "rules", "ai-usage");
 const projectDir = join(project, ".claude", "rules", "ai-usage");
 

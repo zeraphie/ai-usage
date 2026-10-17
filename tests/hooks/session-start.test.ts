@@ -32,7 +32,12 @@ function setUp(base?: string): { home: string; project: string } {
   return { home, project };
 }
 
-function hook(at: { home: string; project: string }, part: string, delivery?: string) {
+function hook(
+  at: { home: string; project: string },
+  part: string,
+  delivery?: string,
+  args: string[] = []
+) {
   const env: Record<string, string> = {
     ...process.env,
     HOME: at.home,
@@ -42,7 +47,7 @@ function hook(at: { home: string; project: string }, part: string, delivery?: st
   if (delivery !== undefined) {
     env["CLAUDE_PLUGIN_OPTION_DELIVERY"] = delivery;
   }
-  const result = Bun.spawnSync([process.execPath, HOOK, part], { env });
+  const result = Bun.spawnSync([process.execPath, HOOK, part, ...args], { env });
   return { code: result.exitCode, out: result.stdout.toString() };
 }
 
@@ -103,4 +108,15 @@ test("with context delivery, each part hands its rules to the session, and sync 
   const project = JSON.parse(hook(at, "project", "context").out);
   expect(project.hookSpecificOutput.additionalContext).toContain("# React");
   expect(project.hookSpecificOutput.additionalContext).toContain("style.md");
+});
+
+test("sync takes the project and the delivery as arguments, as a skill runs it", () => {
+  const at = setUp('{ "stacks": ["lit"] }');
+  const elsewhere = { home: at.home, project: join(root, "elsewhere") };
+  mkdirSync(elsewhere.project);
+  hook(elsewhere, "sync", undefined, [at.project, "rules"]);
+  expect(readdirSync(projectDir(at.project)).sort()).toEqual(["lit.md", "project.md"]);
+  expect(existsSync(projectDir(elsewhere.project))).toBe(false);
+  hook(elsewhere, "sync", undefined, [at.project, "context"]);
+  expect(existsSync(projectDir(at.project))).toBe(false);
 });
