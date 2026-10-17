@@ -3,7 +3,7 @@ name: new-project
 description: Put a project on Izzy's shared base. It asks Izzy a handful of questions, then writes only the project's own layer, its .ai/CLAUDE.md, .ai/base.json and reuse config, copies in the reuse check, and wires bun run check so it passes on the first run. Use it when Izzy starts a project, or asks to put one on the base.
 disable-model-invocation: true
 argument-hint: "[project folder]"
-allowed-tools: Bash(bun ${CLAUDE_PLUGIN_ROOT}/tools/copy-reuse.ts *) Bash(bun run check) Bash(bun tools/check-reuse.ts) Bash(bun tools/build-catalogue.ts *)
+allowed-tools: Read(${CLAUDE_PLUGIN_ROOT}/**) Read(${CLAUDE_SKILL_DIR}/**) Bash(bun ${CLAUDE_PLUGIN_ROOT}/tools/copy-reuse.ts *) Bash(bun ${CLAUDE_PLUGIN_ROOT}/hooks/session-start.ts sync *) Bash(bun run check) Bash(bun tools/check-reuse.ts) Bash(bun tools/build-catalogue.ts *)
 ---
 
 # A new project on the base
@@ -79,7 +79,18 @@ filled in as the likely answer. Never pick for Izzy.
   topic in `.plan/`. Never `git init`, a remote or a push unless Izzy
   asked.
 
-## 4. Check, and report
+## 4. Bring the layers in now
+
+Rules files are read before the session-start hook runs, so the layers
+it writes from `.ai/base.json` would otherwise first reach the session
+after next. Run the hook's sync part for the project:
+
+`bun ${CLAUDE_PLUGIN_ROOT}/hooks/session-start.ts sync <project> ${user_config.delivery}`
+
+With rules delivery it writes `.claude/rules/ai-usage/`; with context
+delivery it writes nothing, as the hook hands the layers over itself.
+
+## 5. Check, and report
 
 Run `bun run check`. It must pass on the first run: a project's start is
 never spent on checks failing on nothing. When a part has nothing to
@@ -87,4 +98,5 @@ check yet (no tests, no source), give it the flag that lets an empty
 run pass and say so, so it comes out once there is something to check.
 
 Report what was written and added, file by file, the answers it rests
-on, what the check said, and end on the reuse reading.
+on, that the sync ran and what it wrote (so the next session starts with
+the layers), what the check said, and end on the reuse reading.
